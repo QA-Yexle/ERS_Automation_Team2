@@ -9,7 +9,7 @@ import utility.ExcelUtil;
 public class NewDemandTest extends BaseTest{
 	 public static String testDataFileLocation= System.getProperty("user.dir")+"\\TestData\\NewDemand.xlsx";
 	
-	 @Test
+	 @Test(priority=1,description="create new demand for HR Department")
 	 public void CreateNewDemand_HR() throws IOException, InterruptedException {
 		testData = new ExcelUtil(testDataFileLocation,"Sheet1");
 	      String dropDepartment = testData.getExcelAsMap().get(0).get("department");
