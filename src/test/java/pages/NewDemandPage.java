@@ -13,6 +13,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import utility.BasePage;
 import utility.TestUtil;
@@ -55,6 +56,9 @@ public class NewDemandPage extends BasePage{
 	 
 	 @FindBy(xpath="//button[@class='Button---btn Button---default_direction Button---primary appian-context-first-in-list appian-context-last-in-list Button---inModalDialogLayout Button---icon_start']")
 	 WebElement alertSubmit;
+	 
+	 @FindBy(xpath="//strong[contains(text(),'Demand created successfully!!')]")
+	 WebElement message;
 	 
 public NewDemandPage() {
 	PageFactory.initElements(driver, this);
@@ -155,6 +159,12 @@ public void clickOnSubmitBtn() throws InterruptedException {
 	TestUtil.WaitUtil(1000);
 	alertSubmit.click();
 	
+	
+}
+
+public void verify_demandCreation() throws InterruptedException {
+	TestUtil.WaitUtil(2000);
+	Assert.assertTrue(message.isDisplayed(),"Success Message is not displyaing");
 	
 }
 

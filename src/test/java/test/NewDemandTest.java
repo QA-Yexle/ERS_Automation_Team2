@@ -34,6 +34,7 @@ public class NewDemandTest extends BaseTest{
 	      demand.click_NextBtn();
 	      demand.fillCriteria();
 	      demand.clickOnSubmitBtn();
+	      demand.verify_demandCreation();
 	      
 	      
 	      
