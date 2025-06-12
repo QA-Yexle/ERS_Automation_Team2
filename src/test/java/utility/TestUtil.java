@@ -7,17 +7,27 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.locators.RelativeLocator;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 
 public class TestUtil extends BasePage{
 	 public static long PAGE_LOAD_TIMEOUT = 20;
 	    public static long IMPLICIT_WAIT = 20;
+	    public static WebDriverWait wait ;
 
 	    public static String TESTDATA_SHEET_PATH = "/Users/naveenkhunteta/Documents/workspace"
 	            + "/FreeCRMTest/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx";
@@ -113,5 +123,159 @@ public class TestUtil extends BasePage{
 	            }
 	        }
 	    }
+
+public static void createDemandForm() throws InterruptedException {
+	wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+	
+	 String[][] criteriaData = {
+	            {"Total Experience", "4 Year", "Desirable", "Candidate should have strong leadership skills."},
+	            {"Minimum Relevant Experience", "3 Year", "Desirable", "Experience in Spring Boot is a must."},
+	            {"Minimum Certification Requirement", "PMP", "Desirable", "Scrum Master certification preferred."},
+	            {"Mode of Work", "Remote", "Essential", "Fully remote work allowed."},
+	            {"Visit Client Location", "Yes", "Desirable", "Requires occasional travel."},
+	            {"Annual Salary( in INR )", "1500000", "Desirable", "Negotiable based on experience."}
+	        };
+	 
+	 for (String[] rowData : criteriaData) {
+        String parameterName = rowData[0];
+        String criteriaValue = rowData[1];
+        String essentialDesirable = rowData[2];
+        String comments = rowData[3];
+        
+        WebElement parameterLabel = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//p[text()='" + parameterName + "']") // Adjust if text is inside a span/div within td
+            ));
+            System.out.println("\nProcessing parameter: " + parameterName);
+            
+            if(parameterName.equals("Total Experience")||parameterName.equals("Minimum Relevant Experience")) {
+            	WebElement criteriaDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::td[1]//div[@class='DropdownWidget---dropdown_value DropdownWidget---inEditableGridLayout DropdownWidget---placeholder']")));
+                criteriaDropdown.click();
+                Thread.sleep(1000);
+                selectdropdownValue(criteriaValue);
+                Thread.sleep(1000);
+                WebElement essentialDesirableDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::td[2]//div[@class='DropdownWidget---dropdown_value DropdownWidget---inEditableGridLayout']")));
+                essentialDesirableDropdown.click();
+                Thread.sleep(1000);
+                selectdropdownValue(essentialDesirable);
+                Thread.sleep(2000);
+                WebElement commentsField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//p[text()='" + parameterName + "']//following::td[3]//textarea")));
+                commentsField.sendKeys(comments);
+            }else if(parameterName.equals("Minimum Certification Requirement")) {
+            	WebElement textcertification =wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()='Minimum Certification Requirement']//following::input[1]")));
+           	 textcertification.sendKeys(criteriaValue);
+           	Thread.sleep(1000);
+            WebElement essentialDesirableDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::td[2]//div[@class='DropdownWidget---dropdown_value DropdownWidget---inEditableGridLayout']")));
+            essentialDesirableDropdown.click();
+            Thread.sleep(1000);
+            selectdropdownValue(essentialDesirable);
+            Thread.sleep(2000);
+            WebElement commentsField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//p[text()='" + parameterName + "']//following::td[3]//textarea")));
+            commentsField.sendKeys(comments);
+            }else if(parameterName.equals("Mode of Work")) {
+            	WebElement workModeDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::td[1]//div[@class='DropdownWidget---dropdown_value DropdownWidget---inEditableGridLayout DropdownWidget---placeholder']")));
+            	workModeDropdown.click();
+                Thread.sleep(1000);
+                String mode = "Remote";
+                selectdropdownValue(mode);
+                Thread.sleep(1000);
+                WebElement essentialDesirableDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::td[2]//div[@class='DropdownWidget---dropdown_value DropdownWidget---inEditableGridLayout']")));
+                essentialDesirableDropdown.click();
+                Thread.sleep(1000);
+                selectdropdownValue(essentialDesirable);
+                Thread.sleep(2000);
+                WebElement commentsField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                        By.xpath("//p[text()='" + parameterName + "']//following::td[3]//textarea")));
+                commentsField.sendKeys(comments);
+            }else if(parameterName.equals("Visit Client Location")) {
+            	 WebElement radioButtonToSelect;
+                 if (criteriaValue.equalsIgnoreCase("Yes")) {
+                	// radioButtonToSelect = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::input[@value='Yes']")));
+                	 radioButtonToSelect = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//p[text()='"+parameterName+"']//following::input[@value='Yes']")));
+                	 clickUsingJavascriptExecutor(radioButtonToSelect);
+                 } else {
+                     radioButtonToSelect = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::input[@value='No']")));
+                         // Specific xpath for the 'No' radio button
+                 }
+                 if (!radioButtonToSelect.isSelected()) {
+                     radioButtonToSelect.click();
+                     System.out.println("Selected radio button: " + criteriaValue);
+                 }
+                 Thread.sleep(1000);
+                 WebElement essentialDesirableDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::td[2]//div[@class='DropdownWidget---dropdown_value DropdownWidget---inEditableGridLayout']")));
+                 essentialDesirableDropdown.click();
+                 Thread.sleep(1000);
+                 selectdropdownValue(essentialDesirable);
+                 Thread.sleep(2000);
+                 WebElement commentsField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                         By.xpath("//p[text()='" + parameterName + "']//following::td[3]//textarea")));
+                 commentsField.sendKeys(comments);
+            }else if (parameterName.equals("Annual Salary( in INR )")) {
+                     WebElement salaryInputField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='"+parameterName+"']//following::input")));
+                     salaryInputField.clear();
+                     salaryInputField.sendKeys(criteriaValue);
+                     System.out.println("Entered salary: " + criteriaValue);
+                     WebElement essentialDesirableDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[text()='"+parameterName+"']//following::td[2]//div[@class='DropdownWidget---dropdown_value DropdownWidget---inEditableGridLayout']")));
+                     essentialDesirableDropdown.click();
+                     Thread.sleep(1000);
+                     selectdropdownValue(essentialDesirable);
+                     Thread.sleep(2000);
+                     WebElement commentsField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                             By.xpath("//p[text()='" + parameterName + "']//following::td[3]//textarea")));
+                     commentsField.sendKeys(comments);
+                         
+        }
+            }
+            
+            
+            
+        
+	 }
+
+
+
+public static void fileUploadUsingRobotClass(WebElement element,String filepath)  {
+	try {
+		element.click();
+		 Thread.sleep(2000);
+	  Robot robot = new Robot();
+	  StringSelection stringSelection = new StringSelection(filepath);
+      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+      System.out.println("File path copied to clipboard: " + filepath);
+
+      // Simulate pressing Ctrl+V (to paste the file path)
+      robot.keyPress(KeyEvent.VK_CONTROL);
+      robot.keyPress(KeyEvent.VK_V);
+      robot.keyRelease(KeyEvent.VK_V);
+      robot.keyRelease(KeyEvent.VK_CONTROL);
+      System.out.println("Pasted file path.");
+
+      // Simulate pressing Enter (to confirm the file selection)
+      robot.keyPress(KeyEvent.VK_ENTER);
+      robot.keyRelease(KeyEvent.VK_ENTER);
+      System.out.println("Pressed Enter to confirm file selection.");
+
+      // Give a small pause to allow the file to be processed/uploaded
+      Thread.sleep(3000); 
+
+      // 4. (Optional) Verify the upload if there's an indication on the page.
+      // For example, if a file name appears next to the input, or a success message.
+      // This part is highly dependent on your application's UI.
+      // Example: Assuming a div with ID "fileNameDisplay" shows the uploaded file name
+      // WebElement uploadedFileNameDisplay = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("fileNameDisplay")));
+      // System.out.println("Uploaded file name displayed: " + uploadedFileNameDisplay.getText());
+	}catch (AWTException e) {
+        System.err.println("Robot class error: " + e.getMessage());
+        e.printStackTrace();
+    } catch (InterruptedException e) {
+        System.err.println("Thread interrupted: " + e.getMessage());
+        Thread.currentThread().interrupt(); // Restore the interrupted status
+    } catch (Exception e) {
+        System.err.println("Selenium or other error: " + e.getMessage());
+        e.printStackTrace();
+    } 
+}
+
 
 }
