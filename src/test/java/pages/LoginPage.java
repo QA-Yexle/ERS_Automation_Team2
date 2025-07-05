@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import utility.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,6 +29,8 @@ public class LoginPage extends BasePage{
 	       String pass = prop.getProperty("password");
 	       pasname.sendKeys(pass);
 	   }
+
+
 	   public void clickOnLogin(){
 	       btnLogin.click();
 	   }
