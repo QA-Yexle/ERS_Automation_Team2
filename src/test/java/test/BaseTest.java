@@ -11,6 +11,7 @@ import utility.BasePage;
 public class BaseTest extends LoginTest{
 	 public static LoginPage loginPage;
 	  public static HomePage homePage;
+
 	
 	 @BeforeMethod
 	    public void init() throws InterruptedException {
