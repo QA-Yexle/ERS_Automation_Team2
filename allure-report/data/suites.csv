@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Create new Demand for QA Department","20946","create new demand for QA Department","Suite","Thu Jul 24 15:21:35 IST 2025","broken","Thu Jul 24 15:21:56 IST 2025","testClasses.NewDemandTest","Test","testClasses.NewDemandTest","CreateNewDemand_QA"
+"","20727","homeNavigation","Suite","Thu Jul 24 15:21:58 IST 2025","broken","Thu Jul 24 15:22:19 IST 2025","testClasses.HomeTest","Test","testClasses.HomeTest","homeNavigation"
+"Create new Demand for HR Department","21920","create new demand for HR Department","Suite","Thu Jul 24 15:21:09 IST 2025","broken","Thu Jul 24 15:21:31 IST 2025","testClasses.NewDemandTest","Test","testClasses.NewDemandTest","CreateNewDemand_HR"

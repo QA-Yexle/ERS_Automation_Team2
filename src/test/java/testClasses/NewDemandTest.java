@@ -1,15 +1,18 @@
-package test;
+package testClasses;
 
 import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import utility.ExcelUtil;
 
 public class NewDemandTest extends BaseTest{
 	 public static String testDataFileLocation= System.getProperty("user.dir")+"\\TestData\\NewDemand.xlsx";
 	
-	 @Test(priority=1,enabled=false,description="create new demand for HR Department")
+	 @Test(priority=1,enabled=true,description="create new demand for HR Department")
+	 @Description("Create new Demand for HR Department")
 	 public void CreateNewDemand_HR() throws IOException, InterruptedException {
 		testData = new ExcelUtil(testDataFileLocation,"Sheet1");
 	      String dropDepartment = testData.getExcelAsMap().get(0).get("department");
@@ -40,6 +43,7 @@ public class NewDemandTest extends BaseTest{
 	
 	
 	 @Test(priority=2,enabled=true,description="create new demand for QA Department")
+	 @Description("Create new Demand for QA Department")
 	 public void CreateNewDemand_QA() throws IOException, InterruptedException {
 		testData = new ExcelUtil(testDataFileLocation,"Sheet1");
 	      String dropDepartment = testData.getExcelAsMap().get(1).get("department");

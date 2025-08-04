@@ -1,4 +1,4 @@
-package test;
+package testClasses;
 
 import pages.LoginPage;
 import utility.BasePage;
