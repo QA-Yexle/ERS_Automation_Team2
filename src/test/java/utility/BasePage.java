@@ -1,55 +1,44 @@
 package utility;
 
 import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-
 
 public class BasePage {
 	public static WebDriver driver;
-	public static Properties prop;
+	public static Properties property;
 	
-
 	public BasePage(){
 		try {
-			prop = new Properties();
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/Config/config.properties");
-			prop.load(ip);
+			property = new Properties();
+			FileInputStream file = new FileInputStream(System.getProperty("user.dir")+ "/Config/config.properties");
+			property.load(file);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.err.println("Configuration file not found: " + e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.err.println("Configuration file not found: " + e.getMessage());
 		}
-	}
+		}
 	
 	
 	public static void initialization(){
-		String browserName = prop.getProperty("browser");
+		String browserName = property.getProperty("browser");
 		
 		if(browserName.equals("chrome")){
 			driver = new ChromeDriver(); 
 		}
-		else if(browserName.equals("FF")){
-			driver = new FirefoxDriver(); 
-		}
-		
-		
-		
+		else {
+			System.out.println("Driver not found");
+		}	
 		
 		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		driver.manage().deleteAllCookies();	
 		
-		driver.get(prop.getProperty("appurl"));
-}
+		driver.get(property.getProperty("application_URL"));
+		}
 	}

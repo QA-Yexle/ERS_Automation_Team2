@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-29T11:18:26 IST" name="AutomationTestSuite" finished-at="2025-07-29T11:25:56 IST" duration-ms="449859">
+    <groups>
+    </groups>
+    <test started-at="2025-07-29T11:18:26 IST" name="FunctionalTests" finished-at="2025-07-29T11:25:56 IST" duration-ms="449859">
+      <class name="test.HoldDemandTest">
+        <test-method is-config="true" signature="init()[pri:0, instance:test.HoldDemandTest@3ba9ad43]" started-at="2025-07-29T11:22:00 IST" name="init" finished-at="2025-07-29T11:22:07 IST" duration-ms="6656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="holdExistingDemand()[pri:1, instance:test.HoldDemandTest@3ba9ad43]" started-at="2025-07-29T11:22:07 IST" name="holdExistingDemand" description="Hold existing demand" finished-at="2025-07-29T11:22:25 IST" duration-ms="17669" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- holdExistingDemand -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.HoldDemandTest@3ba9ad43]" started-at="2025-07-29T11:22:25 IST" name="tearDown" finished-at="2025-07-29T11:22:25 IST" duration-ms="342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.HoldDemandTest -->
+      <class name="test.CreateDemandTest">
+        <test-method is-config="true" signature="init()[pri:0, instance:test.CreateDemandTest@6f96c77]" started-at="2025-07-29T11:18:27 IST" name="init" finished-at="2025-07-29T11:18:35 IST" duration-ms="7731" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="CreateNewDemand_Appian()[pri:1, instance:test.CreateDemandTest@6f96c77]" started-at="2025-07-29T11:18:35 IST" name="CreateNewDemand_Appian" description="create new demand for Appian Department" finished-at="2025-07-29T11:21:13 IST" duration-ms="158231" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateNewDemand_Appian -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.CreateDemandTest@6f96c77]" started-at="2025-07-29T11:21:13 IST" name="tearDown" finished-at="2025-07-29T11:21:13 IST" duration-ms="364" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.CreateDemandTest -->
+      <class name="test.EditDemandTest">
+        <test-method is-config="true" signature="init()[pri:0, instance:test.EditDemandTest@be64738]" started-at="2025-07-29T11:21:13 IST" name="init" finished-at="2025-07-29T11:21:20 IST" duration-ms="7347" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="editExistingDemand()[pri:1, instance:test.EditDemandTest@be64738]" started-at="2025-07-29T11:21:20 IST" name="editExistingDemand" description="Edit existing demand" finished-at="2025-07-29T11:22:00 IST" duration-ms="39546" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- editExistingDemand -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.EditDemandTest@be64738]" started-at="2025-07-29T11:22:00 IST" name="tearDown" finished-at="2025-07-29T11:22:00 IST" duration-ms="349" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.EditDemandTest -->
+      <class name="test.ResumeDemandTest">
+        <test-method is-config="true" signature="init()[pri:0, instance:test.ResumeDemandTest@49d904ec]" started-at="2025-07-29T11:22:25 IST" name="init" finished-at="2025-07-29T11:22:31 IST" duration-ms="6144" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="resumeExistingDemand()[pri:1, instance:test.ResumeDemandTest@49d904ec]" started-at="2025-07-29T11:22:31 IST" name="resumeExistingDemand" description="Resume existing demand which is in on-hold" finished-at="2025-07-29T11:22:46 IST" duration-ms="14842" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- resumeExistingDemand -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.ResumeDemandTest@49d904ec]" started-at="2025-07-29T11:22:46 IST" name="tearDown" finished-at="2025-07-29T11:22:46 IST" duration-ms="381" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.ResumeDemandTest -->
+      <class name="test.MapCandidateTest">
+        <test-method is-config="true" signature="init()[pri:0, instance:test.MapCandidateTest@3d680b5a]" started-at="2025-07-29T11:23:12 IST" name="init" finished-at="2025-07-29T11:23:19 IST" duration-ms="6931" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="MapCandidate()[pri:1, instance:test.MapCandidateTest@3d680b5a]" started-at="2025-07-29T11:23:19 IST" name="MapCandidate" description="Map candidate for the existing demand" finished-at="2025-07-29T11:25:56 IST" duration-ms="156511" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- MapCandidate -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.MapCandidateTest@3d680b5a]" started-at="2025-07-29T11:25:56 IST" name="tearDown" finished-at="2025-07-29T11:25:56 IST" duration-ms="351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.MapCandidateTest -->
+      <class name="test.CloseDemandTest">
+        <test-method is-config="true" signature="init()[pri:0, instance:test.CloseDemandTest@48e4374]" started-at="2025-07-29T11:22:46 IST" name="init" finished-at="2025-07-29T11:22:54 IST" duration-ms="7553" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="closeExistingDemand()[pri:1, instance:test.CloseDemandTest@48e4374]" started-at="2025-07-29T11:22:54 IST" name="closeExistingDemand" description="Close existing demand" finished-at="2025-07-29T11:23:12 IST" duration-ms="17966" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeExistingDemand -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:test.CloseDemandTest@48e4374]" started-at="2025-07-29T11:23:12 IST" name="tearDown" finished-at="2025-07-29T11:23:12 IST" duration-ms="355" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- test.CloseDemandTest -->
+    </test> <!-- FunctionalTests -->
+  </suite> <!-- AutomationTestSuite -->
+</testng-results>
