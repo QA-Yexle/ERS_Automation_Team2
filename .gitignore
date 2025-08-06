@@ -1,2 +1,55 @@
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven target directory
 /target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test reports
 test-output/
+surefire-reports/
+*.png
+*.html
+*.xml
+
+# Allure reports
+allure-results/
+allure-report/
+
+# Build-specific
+dependency-reduced-pom.xml
+release.properties
+
+# SonarQube
+.sonar/
+
+# Node modules (if used)
+node_modules/
+
+# Environment variables or credentials (if any)
+.env
+
