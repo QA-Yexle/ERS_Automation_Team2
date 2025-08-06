@@ -1,6 +1,10 @@
 package utility;
 
 import java.io.FileInputStream;
+<<<<<<< HEAD
+=======
+import org.openqa.selenium.WebDriver;
+>>>>>>> Haseena_Team2
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

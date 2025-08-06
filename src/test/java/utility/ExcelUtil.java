@@ -68,7 +68,9 @@ public class ExcelUtil {
             for (int j = 0; j < columnCount; j++) {
                 XSSFCell cell = row1.getCell(j);
 
-                singleRowData.put(columnHeader.get(j), String.valueOf(cell));
+              singleRowData.put(columnHeader.get(j), String.valueOf(cell));
+            //    singleRowData.put(columnHeader.get(j), getCellValueAsString(cell));
+
 
             }
 
@@ -118,5 +120,13 @@ public class ExcelUtil {
 
 
     }
+<<<<<<< HEAD
     
 }
+=======
+ 
+  
+
+	
+}
+>>>>>>> Haseena_Team2

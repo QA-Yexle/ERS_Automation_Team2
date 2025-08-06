@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Java build files
 *.class
 *.jar
@@ -53,3 +54,6 @@ node_modules/
 # Environment variables or credentials (if any)
 .env
 
+=======
+/target/
+>>>>>>> Haseena_Team2

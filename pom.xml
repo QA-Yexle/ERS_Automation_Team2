@@ -79,25 +79,56 @@
     <artifactId>commons-io</artifactId>
     <version>2.13.0</version> <!-- or latest -->
 </dependency>
+<<<<<<< HEAD
 <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+=======
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+>>>>>>> Haseena_Team2
 <dependency>
     <groupId>io.qameta.allure</groupId>
     <artifactId>allure-testng</artifactId>
     <version>2.29.1</version>
 </dependency>
+<<<<<<< HEAD
 <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-java-commons -->
+=======
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.1.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+>>>>>>> Haseena_Team2
 <dependency>
     <groupId>io.qameta.allure</groupId>
     <artifactId>allure-java-commons</artifactId>
     <version>2.29.1</version>
 </dependency>
+<<<<<<< HEAD
 <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-bom -->
+=======
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.20.0</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.20.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+>>>>>>> Haseena_Team2
 <dependency>
     <groupId>io.qameta.allure</groupId>
     <artifactId>allure-bom</artifactId>
     <version>2.24.0</version>
     <type>pom</type>
 </dependency>
+
+
   </dependencies>
 <<<<<<< HEAD
 
